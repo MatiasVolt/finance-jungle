@@ -1,0 +1,327 @@
+// Parcours « Démarrer » : les bases des bases, pour qui part de zéro.
+// Syntaxe du texte : paragraphes séparés par une ligne vide, **gras**, *italique*, `formule`, lignes « - » en liste.
+
+export default [
+  {
+    id: 'd-argent',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Une histoire qu’on raconte mal',
+        title: 'Le mythe du troc',
+        body: "Les manuels racontent souvent la même histoire : au début, les humains échangeaient des pommes contre des lances, puis ils ont inventé l'argent pour se simplifier la vie.\n\nProblème : les anthropologues n'ont jamais trouvé de société qui fonctionnait d'abord sur le troc. Dans les petits groupes, on fonctionnait au **don et à la dette** : je te donne aujourd'hui, tu m'aideras demain. Pas besoin de compter, tout le monde se connaît.",
+        guide: 'hibou',
+        note: "C'est la thèse de l'anthropologue David Graeber dans *Dette : 5 000 ans d'histoire*. On la discute dans le thème Philosophie.",
+      },
+      {
+        type: 'read',
+        kicker: 'Entre inconnus',
+        title: 'La double coïncidence des besoins',
+        body: "Le troc apparaît surtout entre personnes qui ne se font pas confiance, et il bloque vite.\n\nTu as du poisson et tu veux du bois. Le bûcheron, lui, veut du cuir. Pour échanger, il faudrait qu'il veuille **exactement** ce que tu as, au moment où toi tu veux ce qu'il a.\n\nCette condition rare porte un nom : la **double coïncidence des besoins**.",
+      },
+      {
+        type: 'quiz',
+        question: "Tu proposes tes cours de guitare contre une réparation de vélo, mais le réparateur ne joue pas de musique. Qu'est-ce qui manque ?",
+        options: ['Une unité de compte', 'La double coïncidence des besoins', 'Un contrat écrit', 'Un taux d’intérêt'],
+        answer: 1,
+        explain: "Le réparateur ne veut pas ce que tu offres. Sans monnaie, l'échange n'a pas lieu, même si chacun aurait intérêt à échanger.",
+      },
+      { type: 'prices' },
+      {
+        type: 'read',
+        kicker: 'Les trois fonctions',
+        title: "Ce qu'on demande à une monnaie",
+        body: "Coquillages (les cauris), sel, cacao, puis métal : beaucoup d'objets ont servi de monnaie. Tous remplissaient, plus ou moins bien, trois rôles :\n\n- **Unité de compte** : une règle commune pour exprimer tous les prix.\n- **Intermédiaire des échanges** : tout le monde l'accepte, plus besoin de double coïncidence.\n- **Réserve de valeur** : elle se garde, contrairement aux pommes qui pourrissent.\n\nVers le VIIe siècle av. J.-C., en Lydie (l'actuelle Turquie), apparaissent les premières **pièces frappées** : un poids de métal garanti par un sceau royal.",
+      },
+      {
+        type: 'quiz',
+        question: 'Tu notes que ton loyer vaut « 3 mois de courses ». Quelle fonction de la monnaie manque à ce calcul ?',
+        options: ["L'unité de compte", 'La réserve de valeur', "L'intermédiaire des échanges", 'Aucune'],
+        answer: 0,
+        explain: "Sans unité de compte, tu mesures tout avec autre chose (des mois de courses). L'euro sert justement de règle commune.",
+      },
+      {
+        type: 'read',
+        kicker: 'Aujourd’hui',
+        title: 'Une monnaie qui ne vaut que par la confiance',
+        body: "Depuis 1971, le dollar n'est plus convertible en or, et les autres grandes monnaies non plus. Un billet de 20 € n'est adossé à aucun métal.\n\nIl vaut quelque chose parce que l'État l'impose pour payer les impôts, que la banque centrale veille à sa valeur, et surtout parce que **tout le monde s'attend à ce que les autres l'acceptent**. On parle de monnaie **fiduciaire**, du latin *fides*, la confiance.",
+      },
+      {
+        type: 'quiz',
+        question: "Pourquoi le troc revient-il pendant les guerres ou les crises monétaires (cigarettes en prison, par exemple) ?",
+        options: ['Parce qu’il est plus efficace', 'Parce que la confiance dans la monnaie s’effondre', "Parce que l'État l'impose", 'Parce que les prix baissent'],
+        answer: 1,
+        explain: "Une monnaie fiduciaire ne tient que par la confiance. Quand elle disparaît, on se rabat sur des objets qui ont une valeur en eux-mêmes.",
+      },
+    ],
+  },
+
+  {
+    id: 'd-banques',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Idée reçue',
+        title: "La banque prête-t-elle l'argent de ses clients ?",
+        body: "On imagine souvent la banque comme un grand coffre : des clients déposent, et la banque prête cet argent à d'autres.\n\nC'est en partie faux. Quand une banque t'accorde un crédit de 10 000 €, elle ne retire ces euros du compte de personne. Elle **écrit** 10 000 € sur ton compte. Ces euros n'existaient pas une seconde avant.",
+        guide: 'hibou',
+        note: "La Banque d'Angleterre l'a expliqué noir sur blanc en 2014 : « les crédits font les dépôts », et non l'inverse.",
+      },
+      {
+        type: 'table',
+        kicker: 'Les deux côtés du prêt',
+        title: 'Ce que la banque écrit',
+        columns: ['', 'Toi', 'La banque'],
+        rows: [
+          ['Ce que tu possèdes', '+ 10 000 € sur ton compte', '+ 10 000 € de créance sur toi'],
+          ['Ce que tu dois', '+ 10 000 € de dette', '+ 10 000 € dus sur ton compte'],
+        ],
+        caption: "Pour toi comme pour la banque, l'opération s'écrit des deux côtés. Rien n'a été pris à personne : de la **monnaie scripturale** vient d'être créée.",
+      },
+      {
+        type: 'quiz',
+        question: 'Et quand tu rembourses ton prêt, que devient cette monnaie ?',
+        options: ['Elle retourne dans le coffre de la banque', 'Elle est détruite', 'Elle part à la banque centrale', 'Elle est prêtée à quelqu’un d’autre automatiquement'],
+        answer: 1,
+        explain: "Le remboursement efface à la fois ta dette et le dépôt correspondant. La monnaie créée par le crédit disparaît au remboursement (seuls les intérêts restent à la banque).",
+      },
+      {
+        type: 'read',
+        kicker: 'Les ordres de grandeur',
+        title: 'Les billets, une petite partie de la monnaie',
+        body: "Dans la zone euro, les billets et pièces ne représentent qu'environ **un dixième** de la monnaie en circulation. Le reste, ce sont des écritures sur des comptes, créées en grande partie par les crédits des banques.\n\nQuand tu paies par carte, aucun billet ne bouge : un chiffre baisse sur ton compte et monte sur un autre.",
+      },
+      {
+        type: 'read',
+        kicker: 'Les limites',
+        title: 'Pourquoi les banques ne créent pas de monnaie à l’infini',
+        body: "Trois freins principaux :\n\n- **La demande** : il faut des emprunteurs solvables qui veulent emprunter.\n- **La banque centrale** : elle fixe le taux auquel les banques se refinancent. Plus il est haut, plus le crédit coûte cher.\n- **Les règles prudentielles** : une banque doit détenir assez de fonds propres pour absorber les pertes si des emprunteurs ne remboursent pas.",
+      },
+      {
+        type: 'quiz',
+        question: 'La banque centrale relève fortement ses taux. Que se passe-t-il en général pour le crédit ?',
+        options: ['Il augmente', 'Il ralentit', 'Il ne change pas', 'Il devient gratuit'],
+        answer: 1,
+        explain: "Emprunter coûte plus cher, donc on emprunte moins. Moins de crédits, c'est moins de monnaie créée : c'est un levier de lutte contre l'inflation.",
+      },
+    ],
+  },
+
+  {
+    id: 'd-temps',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Le prix de l’attente',
+        title: "100 € aujourd'hui ou 100 € dans un an ?",
+        body: "Presque tout le monde choisit aujourd'hui. Et c'est rationnel : avec 100 € maintenant, tu peux les dépenser, ou les placer et avoir **plus** de 100 € dans un an.\n\nCette idée est le socle de toute la finance : **le temps a un prix**. Ce prix, c'est le **taux d'intérêt**.",
+        guide: 'tortue',
+        note: "Je suis lente, mais sur la durée personne ne me bat. Tu vas voir pourquoi.",
+      },
+      {
+        type: 'read',
+        kicker: 'Version 1',
+        title: "L'intérêt simple",
+        body: "Tu places 1 000 € à 5 % par an. Chaque année, tu touches 5 % **de ta mise de départ** : 50 €.\n\nAprès 10 ans : 1 000 + 10 × 50 = **1 500 €**.\n\nLes intérêts s'empilent à côté, ils ne travaillent pas.",
+      },
+      {
+        type: 'formula',
+        kicker: 'Version 2',
+        title: "L'intérêt composé",
+        intro: 'Cette fois, les intérêts de chaque année sont réinvestis et rapportent à leur tour. Construisons la formule.',
+        pieces: [
+          { text: 'C', cls: 't1', explain: 'C, le capital de départ : 1 000 €.' },
+          { text: '× (1 + r)', cls: 't2', explain: "Une année passe : le capital est multiplié par (1 + r). Avec r = 5 %, c'est × 1,05." },
+          { text: 'ⁿ', cls: 't3', explain: "On recommence chaque année, sur le nouveau total. Après n années, on a multiplié n fois : (1 + r) puissance n." },
+        ],
+        result: 'Après 10 ans : 1 000 × 1,05¹⁰ ≈ **1 629 €**, soit 129 € de plus qu’avec l’intérêt simple.',
+      },
+      {
+        type: 'number',
+        question: 'Tu places 1 000 € à 10 % par an, intérêts composés. Combien as-tu après 2 ans ?',
+        answer: 1210,
+        tolerance: 0.5,
+        unit: '€',
+        hint: 'Première année : 1 000 × 1,10. Deuxième année : le résultat × 1,10.',
+        explain: '1 000 × 1,10 = 1 100, puis 1 100 × 1,10 = 1 210. La deuxième année rapporte 110 € et non 100 € : les intérêts de la première année ont travaillé.',
+      },
+      { type: 'compound' },
+      {
+        type: 'read',
+        kicker: 'Astuce de calcul mental',
+        title: 'La règle de 72',
+        body: "Pour savoir en combien d'années un placement **double**, divise 72 par le taux annuel.\n\n- À 6 % : 72 ÷ 6 = environ **12 ans**.\n- À 9 % : environ 8 ans.\n\nC'est une approximation, très bonne pour les taux entre 2 et 15 %.",
+      },
+      {
+        type: 'number',
+        question: 'À 4 % par an, en combien d’années environ ton capital double-t-il ?',
+        answer: 18,
+        tolerance: 0.5,
+        unit: 'ans',
+        explain: '72 ÷ 4 = 18 ans. Le calcul exact donne 17,7 ans.',
+      },
+      {
+        type: 'read',
+        kicker: 'La leçon de la Tortue',
+        title: 'Commencer tôt bat investir beaucoup',
+        body: "Anna place 1 200 € par an de 20 à 30 ans, puis s'arrête : **12 000 €** versés.\nBen place 1 200 € par an de 30 à 60 ans : **36 000 €** versés.\n\nÀ 7 % par an, à 60 ans, Anna a environ **126 000 €** et Ben environ **113 000 €**.\n\nAnna a versé trois fois moins. Ses dix années d'avance ont laissé le temps faire le travail.",
+        guide: 'tortue',
+        note: 'Le rendement de 7 % est une hypothèse de calcul, pas une promesse. Mais le mécanisme, lui, est mathématique.',
+      },
+      {
+        type: 'quiz',
+        question: "Qu'est-ce qui fait la plus grande différence dans l'exemple d'Anna et Ben ?",
+        options: ['Le montant versé', 'Le temps laissé aux intérêts composés', 'La chance', 'Le type de banque'],
+        answer: 1,
+        explain: 'Avec les intérêts composés, les dernières années sont celles où le capital grossit le plus. Partir tôt, c’est ajouter des années à la fin.',
+      },
+    ],
+  },
+
+  {
+    id: 'd-inflation',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Définition',
+        title: "L'inflation, c'est quoi ?",
+        body: "L'inflation est la **hausse générale et durable des prix**. Si le prix d'un seul produit monte, ce n'est pas de l'inflation. Si la plupart des prix montent, si.\n\nEn France, l'INSEE la mesure avec l'**indice des prix à la consommation** : le prix d'un grand panier de biens et de services représentatif de ce qu'achètent les ménages.",
+      },
+      {
+        type: 'number',
+        question: 'Tes courses de la semaine coûtent 80 €. Avec 5 % d’inflation sur un an, combien coûte le même panier un an plus tard ?',
+        answer: 84,
+        tolerance: 0.01,
+        unit: '€',
+        explain: '80 × 1,05 = 84 €. Ton salaire doit augmenter d’au moins 5 % pour que tu puisses acheter la même chose.',
+      },
+      {
+        type: 'read',
+        kicker: 'Le vrai rendement',
+        title: 'Taux nominal et taux réel',
+        body: "Ton livret rapporte 3 % : c'est le taux **nominal**. Mais si les prix montent de 5 %, tu peux acheter moins qu'avant avec ton épargne.\n\nLe taux **réel** corrige l'inflation :\n\n`taux réel ≈ taux nominal − inflation`\n\nIci : 3 % − 5 % = **−2 %**. Ton compte affiche plus d'euros, mais tu t'es appauvri.",
+      },
+      {
+        type: 'quiz',
+        question: 'Ton salaire augmente de 2 % alors que l’inflation est de 4 %. Ton pouvoir d’achat…',
+        options: ['augmente d’environ 2 %', 'baisse d’environ 2 %', 'ne change pas', 'baisse d’environ 6 %'],
+        answer: 1,
+        explain: '2 % − 4 % ≈ −2 %. Tu gagnes plus d’euros, mais chacun achète moins.',
+      },
+      {
+        type: 'read',
+        kicker: 'Pourquoi 2 % ?',
+        title: 'Ni trop, ni trop peu',
+        body: "La Banque centrale européenne vise une inflation de **2 %** à moyen terme. Pourquoi pas zéro ?\n\n- La **déflation** (baisse des prix) est dangereuse : si tout sera moins cher demain, on reporte ses achats, les entreprises vendent moins, licencient, et les prix baissent encore.\n- Une **hyperinflation** détruit la monnaie : en Allemagne en 1923, les prix doublaient en quelques jours.\n\nUn peu d'inflation, stable et prévisible, est le compromis retenu.",
+      },
+      {
+        type: 'quiz',
+        question: 'Qui perd le plus quand l’inflation est forte et imprévue ?',
+        options: ['Celui qui a emprunté à taux fixe', 'Celui qui a beaucoup d’argent sur un compte non rémunéré', 'Celui qui possède une maison', 'Personne'],
+        answer: 1,
+        explain: "L'argent qui dort perd sa valeur réelle. À l'inverse, l'emprunteur à taux fixe y gagne : sa dette, en euros constants, fond.",
+      },
+    ],
+  },
+
+  {
+    id: 'd-risque',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Deux mots à distinguer',
+        title: 'Rendement et risque',
+        body: "Le **rendement**, c'est ce que rapporte un placement, en pourcentage de ce que tu as mis.\n\nLe **risque**, c'est l'incertitude sur ce rendement : à quel point le résultat peut s'écarter de ce que tu attends, y compris vers le bas.",
+        guide: 'crocodile',
+        note: "L'eau la plus calme n'est pas toujours la plus sûre. Mais l'eau agitée, elle, ne ment pas sur ses dangers.",
+      },
+      {
+        type: 'read',
+        kicker: 'La règle d’or',
+        title: 'Pas de rendement élevé sans risque',
+        body: "Sur longue période, les actions ont rapporté plus que les livrets ou les obligations d'État. En échange, elles peuvent perdre 30 ou 50 % en quelques mois.\n\nCet écart de rendement s'appelle la **prime de risque** : c'est le prix que les investisseurs exigent pour accepter l'incertitude. Si un placement rapporte beaucoup, c'est qu'il porte un risque, visible ou caché.",
+      },
+      {
+        type: 'quiz',
+        question: 'Un inconnu sur Instagram te promet 20 % par mois, garantis, sans aucun risque. Ta lecture ?',
+        options: ['Une belle opportunité', 'Une promesse incompatible avec la règle rendement-risque', 'Un placement d’État', 'Un livret bancaire'],
+        answer: 1,
+        explain: '20 % par mois, c’est presque 800 % par an. Un tel rendement « garanti et sans risque » n’existe pas : c’est le signal classique d’une arnaque.',
+      },
+      {
+        type: 'read',
+        kicker: 'Le seul repas gratuit',
+        title: 'La diversification',
+        body: "Imagine deux entreprises : une vend des parasols, l'autre des parapluies. Chacune, seule, est risquée : tout dépend de la météo.\n\nSi tu possèdes un peu des deux, l'été pluvieux qui ruine l'une enrichit l'autre. Ton résultat devient **plus stable** sans que ton rendement moyen baisse.\n\nC'est la **diversification** : répartir son argent entre des placements qui ne réagissent pas tous de la même façon.",
+      },
+      {
+        type: 'read',
+        kicker: 'Anatomie d’une arnaque',
+        title: 'La pyramide de Ponzi',
+        body: "Le principe : payer les « rendements » des anciens investisseurs avec l'argent des nouveaux. Tant que de nouveaux clients arrivent, tout semble fonctionner. Le jour où les entrées ralentissent, tout s'effondre.\n\nBernard Madoff a fait tourner ce système pendant des décennies, jusqu'en 2008, avec des rendements réguliers et « trop lisses ». Les pertes se chiffrent en dizaines de milliards de dollars.",
+      },
+      {
+        type: 'quiz',
+        question: "Quel signal aurait dû alerter les clients de Madoff ?",
+        options: ['Des rendements très irréguliers', 'Des rendements élevés et presque sans aucune variation, année après année', 'Des frais trop bas', 'Un bureau à New York'],
+        answer: 1,
+        explain: 'Un rendement élevé sans volatilité contredit la règle rendement-risque. Trop beau, trop régulier : c’est précisément ce qui aurait dû inquiéter.',
+      },
+    ],
+  },
+
+  {
+    id: 'd-marches',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Devenir propriétaire',
+        title: 'Une action',
+        body: "Une **action** est une part de propriété d'une entreprise. Si une société est découpée en 1 million d'actions et que tu en as 10, tu possèdes un cent-millième de l'entreprise.\n\nCela te donne généralement le droit de **voter** en assemblée générale et de toucher une part des bénéfices distribués : les **dividendes**. Si l'entreprise fait faillite, les actionnaires passent après tous les créanciers.",
+        guide: 'singe',
+        note: "Moi, j'achète quand ça monte et je vends quand ça baisse. Ne fais pas comme moi, on en reparlera.",
+      },
+      {
+        type: 'read',
+        kicker: 'Devenir prêteur',
+        title: 'Une obligation',
+        body: "Une **obligation** est un prêt découpé en morceaux. Tu prêtes de l'argent à un État ou une entreprise, qui te verse des intérêts réguliers (le **coupon**) puis te rembourse à une date fixée (l'**échéance**).\n\nTu n'es pas propriétaire, tu es **créancier**. En cas de difficulté, tu es remboursé avant les actionnaires.",
+      },
+      {
+        type: 'quiz',
+        question: 'Une entreprise fait faillite. Qui est servi en premier sur ce qu’il reste ?',
+        options: ['Les actionnaires', 'Les détenteurs d’obligations', 'Les deux en même temps', 'Personne n’est remboursé'],
+        answer: 1,
+        explain: "Les créanciers passent avant les propriétaires. C'est pour cela qu'une obligation d'une même entreprise est en général moins risquée que son action.",
+      },
+      {
+        type: 'read',
+        kicker: 'Le marché',
+        title: 'La Bourse et les indices',
+        body: "Quand une entreprise émet de nouvelles actions, elle lève de l'argent : c'est le **marché primaire**. Ensuite, ces actions s'échangent entre investisseurs en Bourse : c'est le **marché secondaire**. Le prix y bouge selon l'offre et la demande.\n\nUn **indice** résume un marché. Le **CAC 40** suit 40 grandes entreprises cotées à Paris, le **S&P 500** 500 grandes entreprises américaines.",
+      },
+      {
+        type: 'number',
+        question: "Tu achètes une action 50 €. Un an plus tard, elle vaut 55 € et t'a versé 2 € de dividende. Quel est ton rendement total, en % ?",
+        answer: 14,
+        tolerance: 0.05,
+        unit: '%',
+        hint: 'Additionne la plus-value et le dividende, puis divise par le prix d’achat.',
+        explain: '(5 € de plus-value + 2 € de dividende) ÷ 50 € = 0,14, soit 14 %.',
+      },
+      {
+        type: 'read',
+        kicker: 'Pour tout le monde',
+        title: 'Les ETF',
+        body: "Un **ETF** (ou tracker) est un fonds coté qui réplique un indice. Acheter une part d'un ETF sur le S&P 500, c'est posséder un petit morceau des 500 entreprises d'un coup.\n\nAvantages : une diversification immédiate et des frais souvent très bas. C'est devenu l'outil de base de l'investissement à long terme pour les particuliers.",
+      },
+      {
+        type: 'quiz',
+        question: 'Pourquoi un ETF sur un grand indice est-il moins risqué qu’une seule action ?',
+        options: ['Parce qu’il est garanti par l’État', 'Parce qu’il est diversifié sur de nombreuses entreprises', 'Parce qu’il ne baisse jamais', 'Parce qu’il ne verse pas de dividende'],
+        answer: 1,
+        explain: "La faillite d'une entreprise pèse peu dans un panier de centaines. Mais attention : si tout le marché baisse, l'ETF baisse aussi.",
+      },
+    ],
+  },
+]

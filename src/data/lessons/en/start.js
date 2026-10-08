@@ -1,0 +1,327 @@
+// "Getting started": the very basics, for anyone starting from zero.
+// English version of fr/demarrer.js — same ids, same screens in the same order.
+
+export default [
+  {
+    id: 'd-argent',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'A story usually told wrong',
+        title: 'The myth of barter',
+        body: "Textbooks often tell the same story: at first, people swapped apples for spears, then they invented money to make life easier.\n\nThe problem: anthropologists have never found a society that ran on barter first. In small groups, people relied on **gifts and debts**: I give to you today, you'll help me tomorrow. No need to keep score, everyone knows everyone.",
+        guide: 'hibou',
+        note: "That's the thesis of anthropologist David Graeber in *Debt: The First 5,000 Years*. We debate it in the Philosophy topic.",
+      },
+      {
+        type: 'read',
+        kicker: 'Between strangers',
+        title: 'The double coincidence of wants',
+        body: "Barter mostly appears between people who don't trust each other, and it quickly gets stuck.\n\nYou have fish and you want wood. The woodcutter, though, wants leather. For a swap to happen, he would have to want **exactly** what you have, at the very moment you want what he has.\n\nThis rare condition has a name: the **double coincidence of wants**.",
+      },
+      {
+        type: 'quiz',
+        question: "You offer guitar lessons in exchange for a bike repair, but the mechanic doesn't play music. What's missing?",
+        options: ['A unit of account', 'The double coincidence of wants', 'A written contract', 'An interest rate'],
+        answer: 1,
+        explain: "The mechanic doesn't want what you're offering. Without money, the trade doesn't happen, even though both of you would benefit from it.",
+      },
+      { type: 'prices' },
+      {
+        type: 'read',
+        kicker: 'The three functions',
+        title: 'What we ask of money',
+        body: "Shells (cowries), salt, cocoa, then metal: many objects have served as money. All of them played three roles, some better than others:\n\n- **Unit of account**: a common yardstick to express every price.\n- **Medium of exchange**: everyone accepts it, so no more double coincidence needed.\n- **Store of value**: it keeps, unlike apples that rot.\n\nAround the 7th century BC, in Lydia (today's Turkey), the first **struck coins** appeared: a weight of metal guaranteed by a royal seal.",
+      },
+      {
+        type: 'quiz',
+        question: 'You note that your rent is worth "3 months of groceries". Which function of money is missing from this calculation?',
+        options: ['Unit of account', 'Store of value', 'Medium of exchange', 'None'],
+        answer: 0,
+        explain: 'Without a unit of account, you measure everything with something else (months of groceries). The euro or the dollar is precisely that common yardstick.',
+      },
+      {
+        type: 'read',
+        kicker: 'Today',
+        title: 'Money that is only worth the trust we place in it',
+        body: "Since 1971, the dollar has no longer been convertible into gold, and neither have the other major currencies. A €20 note is not backed by any metal.\n\nIt's worth something because the state requires it for paying taxes, because the central bank looks after its value, and above all because **everyone expects everyone else to accept it**. This is called **fiat** money, from the Latin for \"let it be done\"; in French it's called *fiduciaire*, from *fides*, trust.",
+      },
+      {
+        type: 'quiz',
+        question: 'Why does barter come back during wars or currency crises (cigarettes in prison, for instance)?',
+        options: ["Because it's more efficient", 'Because trust in money collapses', 'Because the state imposes it', 'Because prices fall'],
+        answer: 1,
+        explain: 'Fiat money only holds together through trust. When that disappears, people fall back on objects that have value in themselves.',
+      },
+    ],
+  },
+
+  {
+    id: 'd-banques',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'A common belief',
+        title: "Does the bank lend out its customers' money?",
+        body: "People often picture a bank as a big vault: customers deposit money, and the bank lends that money to others.\n\nThat's partly wrong. When a bank grants you a €10,000 loan, it doesn't take those euros out of anyone's account. It **writes** €10,000 into your account. Those euros didn't exist a second earlier.",
+        guide: 'hibou',
+        note: 'The Bank of England spelled it out in 2014: "loans create deposits", not the other way round.',
+      },
+      {
+        type: 'table',
+        kicker: 'Both sides of the loan',
+        title: 'What the bank writes down',
+        columns: ['', 'You', 'The bank'],
+        rows: [
+          ['What you own', '+ €10,000 in your account', '+ €10,000 owed by you'],
+          ['What you owe', '+ €10,000 of debt', '+ €10,000 owed to your account'],
+        ],
+        caption: "For you as for the bank, the operation is written on both sides. Nothing was taken from anyone: **bank money** (deposits) has just been created.",
+      },
+      {
+        type: 'quiz',
+        question: 'And when you repay the loan, what happens to that money?',
+        options: ["It goes back into the bank's vault", 'It is destroyed', 'It goes to the central bank', 'It is automatically lent to someone else'],
+        answer: 1,
+        explain: 'Repayment wipes out both your debt and the matching deposit. Money created by a loan disappears when it is repaid (only the interest stays with the bank).',
+      },
+      {
+        type: 'read',
+        kicker: 'Orders of magnitude',
+        title: 'Notes are a small part of money',
+        body: "In the euro area, notes and coins make up only about **a tenth** of the money in circulation. The rest is entries in accounts, largely created by bank lending.\n\nWhen you pay by card, no note moves: a number goes down in your account and up in another.",
+      },
+      {
+        type: 'read',
+        kicker: 'The limits',
+        title: "Why banks don't create money endlessly",
+        body: "Three main brakes:\n\n- **Demand**: there must be creditworthy borrowers who want to borrow.\n- **The central bank**: it sets the rate at which banks refinance themselves. The higher it is, the more expensive credit becomes.\n- **Prudential rules**: a bank must hold enough capital to absorb losses if borrowers don't repay.",
+      },
+      {
+        type: 'quiz',
+        question: 'The central bank raises its rates sharply. What usually happens to lending?',
+        options: ['It increases', 'It slows down', "It doesn't change", 'It becomes free'],
+        answer: 1,
+        explain: 'Borrowing costs more, so people borrow less. Fewer loans means less money created: that is one of the levers for fighting inflation.',
+      },
+    ],
+  },
+
+  {
+    id: 'd-temps',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'The price of waiting',
+        title: '€100 today or €100 in a year?',
+        body: "Almost everyone picks today. And that's rational: with €100 now, you can spend it, or invest it and have **more** than €100 in a year.\n\nThis idea is the foundation of all finance: **time has a price**. That price is the **interest rate**.",
+        guide: 'tortue',
+        note: "I'm slow, but over the long run nobody beats me. You'll see why.",
+      },
+      {
+        type: 'read',
+        kicker: 'Version 1',
+        title: 'Simple interest',
+        body: "You invest €1,000 at 5% a year. Each year, you earn 5% **of your initial stake**: €50.\n\nAfter 10 years: 1,000 + 10 × 50 = **€1,500**.\n\nThe interest piles up on the side; it doesn't work for you.",
+      },
+      {
+        type: 'formula',
+        kicker: 'Version 2',
+        title: 'Compound interest',
+        intro: "This time, each year's interest is reinvested and earns interest in turn. Let's build the formula.",
+        pieces: [
+          { text: 'C', cls: 't1', explain: 'C, the starting capital: €1,000.' },
+          { text: '× (1 + r)', cls: 't2', explain: 'One year goes by: the capital is multiplied by (1 + r). With r = 5%, that is × 1.05.' },
+          { text: 'ⁿ', cls: 't3', explain: 'We repeat every year, on the new total. After n years, we have multiplied n times: (1 + r) to the power n.' },
+        ],
+        result: 'After 10 years: 1,000 × 1.05¹⁰ ≈ **€1,629**, i.e. €129 more than with simple interest.',
+      },
+      {
+        type: 'number',
+        question: 'You invest €1,000 at 10% a year, compound interest. How much do you have after 2 years?',
+        answer: 1210,
+        tolerance: 0.5,
+        unit: '€',
+        hint: 'First year: 1,000 × 1.10. Second year: the result × 1.10.',
+        explain: "1,000 × 1.10 = 1,100, then 1,100 × 1.10 = 1,210. The second year earns €110, not €100: the first year's interest has been working.",
+      },
+      { type: 'compound' },
+      {
+        type: 'read',
+        kicker: 'A mental maths shortcut',
+        title: 'The rule of 72',
+        body: "To find how many years it takes an investment to **double**, divide 72 by the annual rate.\n\n- At 6%: 72 ÷ 6 = about **12 years**.\n- At 9%: about 8 years.\n\nIt's an approximation, and a very good one for rates between 2% and 15%.",
+      },
+      {
+        type: 'number',
+        question: 'At 4% a year, roughly how many years does it take your capital to double?',
+        answer: 18,
+        tolerance: 0.5,
+        unit: 'years',
+        explain: '72 ÷ 4 = 18 years. The exact calculation gives 17.7 years.',
+      },
+      {
+        type: 'read',
+        kicker: "The Tortoise's lesson",
+        title: 'Starting early beats investing a lot',
+        body: "Anna invests €1,200 a year from age 20 to 30, then stops: **€12,000** paid in.\nBen invests €1,200 a year from 30 to 60: **€36,000** paid in.\n\nAt 7% a year, by age 60 Anna has about **€126,000** and Ben about **€113,000**.\n\nAnna paid in three times less. Her ten-year head start let time do the work.",
+        guide: 'tortue',
+        note: 'The 7% return is an assumption for the calculation, not a promise. But the mechanism itself is pure maths.',
+      },
+      {
+        type: 'quiz',
+        question: 'What makes the biggest difference in the Anna and Ben example?',
+        options: ['The amount paid in', 'The time given to compound interest', 'Luck', 'The type of bank'],
+        answer: 1,
+        explain: 'With compound interest, the last years are when capital grows the most. Starting early means adding years at the end.',
+      },
+    ],
+  },
+
+  {
+    id: 'd-inflation',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Definition',
+        title: 'What is inflation?',
+        body: "Inflation is a **general and lasting rise in prices**. If the price of a single product goes up, that's not inflation. If most prices go up, it is.\n\nStatistics offices measure it with a **consumer price index**: the price of a large basket of goods and services representative of what households buy.",
+      },
+      {
+        type: 'number',
+        question: 'Your weekly groceries cost €80. With 5% inflation over a year, how much does the same basket cost a year later?',
+        answer: 84,
+        tolerance: 0.01,
+        unit: '€',
+        explain: '80 × 1.05 = €84. Your pay must rise by at least 5% for you to buy the same things.',
+      },
+      {
+        type: 'read',
+        kicker: 'The real return',
+        title: 'Nominal and real rates',
+        body: "Your savings account pays 3%: that's the **nominal** rate. But if prices rise by 5%, your savings buy less than before.\n\nThe **real** rate corrects for inflation:\n\n`real rate ≈ nominal rate − inflation`\n\nHere: 3% − 5% = **−2%**. Your account shows more euros, but you've become poorer.",
+      },
+      {
+        type: 'quiz',
+        question: 'Your pay rises by 2% while inflation is 4%. Your purchasing power…',
+        options: ['rises by about 2%', 'falls by about 2%', "doesn't change", 'falls by about 6%'],
+        answer: 1,
+        explain: '2% − 4% ≈ −2%. You earn more euros, but each one buys less.',
+      },
+      {
+        type: 'read',
+        kicker: 'Why 2%?',
+        title: 'Not too much, not too little',
+        body: "The European Central Bank targets inflation of **2%** over the medium term. Why not zero?\n\n- **Deflation** (falling prices) is dangerous: if everything will be cheaper tomorrow, people put off buying, firms sell less, lay people off, and prices fall further.\n- **Hyperinflation** destroys a currency: in Germany in 1923, prices doubled within days.\n\nA little inflation, stable and predictable, is the chosen compromise.",
+      },
+      {
+        type: 'quiz',
+        question: 'Who loses most when inflation is high and unexpected?',
+        options: ['Someone who borrowed at a fixed rate', 'Someone with a lot of money in an account that pays nothing', 'Someone who owns a house', 'Nobody'],
+        answer: 1,
+        explain: 'Idle money loses real value. The fixed-rate borrower, on the other hand, gains: in constant euros, their debt melts away.',
+      },
+    ],
+  },
+
+  {
+    id: 'd-risque',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Two words to tell apart',
+        title: 'Return and risk',
+        body: "**Return** is what an investment earns, as a percentage of what you put in.\n\n**Risk** is the uncertainty around that return: how far the outcome can stray from what you expect, including on the downside.",
+        guide: 'crocodile',
+        note: "The calmest water isn't always the safest. But choppy water, at least, doesn't lie about its dangers.",
+      },
+      {
+        type: 'read',
+        kicker: 'The golden rule',
+        title: 'No high return without risk',
+        body: "Over the long run, stocks have returned more than savings accounts or government bonds. In exchange, they can lose 30% or 50% in a few months.\n\nThat gap in returns is called the **risk premium**: the price investors demand for accepting uncertainty. If an investment pays a lot, it carries risk, visible or hidden.",
+      },
+      {
+        type: 'quiz',
+        question: 'A stranger on Instagram promises you 20% a month, guaranteed, with no risk at all. Your take?',
+        options: ['A great opportunity', 'A promise that breaks the risk-return rule', 'A government investment', 'A bank savings account'],
+        answer: 1,
+        explain: '20% a month is almost 800% a year. A "guaranteed, risk-free" return like that does not exist: it is the classic sign of a scam.',
+      },
+      {
+        type: 'read',
+        kicker: 'The only free lunch',
+        title: 'Diversification',
+        body: "Picture two companies: one sells sun umbrellas, the other rain umbrellas. Each on its own is risky: everything depends on the weather.\n\nIf you own a bit of both, the rainy summer that ruins one enriches the other. Your result becomes **more stable** without your average return going down.\n\nThat's **diversification**: spreading your money across investments that don't all react the same way.",
+      },
+      {
+        type: 'read',
+        kicker: 'Anatomy of a scam',
+        title: 'The Ponzi scheme',
+        body: "The principle: pay earlier investors' \"returns\" with money from new investors. As long as new clients keep coming, everything seems to work. The day inflows slow down, it all collapses.\n\nBernard Madoff ran this scheme for decades, until 2008, with steady, \"too smooth\" returns. The losses ran into tens of billions of dollars.",
+      },
+      {
+        type: 'quiz',
+        question: "What signal should have alarmed Madoff's clients?",
+        options: ['Very irregular returns', 'High returns with almost no variation, year after year', 'Fees that were too low', 'An office in New York'],
+        answer: 1,
+        explain: 'A high return with no volatility contradicts the risk-return rule. Too good, too regular: that is exactly what should have raised concern.',
+      },
+    ],
+  },
+
+  {
+    id: 'd-marches',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Becoming an owner',
+        title: 'A share',
+        body: "A **share** (or stock) is a slice of ownership in a company. If a company is split into 1 million shares and you hold 10, you own one hundred-thousandth of the business.\n\nThis usually gives you the right to **vote** at the general meeting and to receive part of the profits paid out: **dividends**. If the company goes bankrupt, shareholders come after all the creditors.",
+        guide: 'singe',
+        note: "I buy when it's going up and sell when it's going down. Don't copy me; we'll talk about it later.",
+      },
+      {
+        type: 'read',
+        kicker: 'Becoming a lender',
+        title: 'A bond',
+        body: "A **bond** is a loan cut into pieces. You lend money to a government or a company, which pays you regular interest (the **coupon**) and then repays you on a set date (the **maturity**).\n\nYou're not an owner, you're a **creditor**. If things go wrong, you get repaid before the shareholders.",
+      },
+      {
+        type: 'quiz',
+        question: 'A company goes bankrupt. Who gets paid first from what is left?',
+        options: ['The shareholders', 'The bondholders', 'Both at the same time', 'Nobody gets anything'],
+        answer: 1,
+        explain: "Creditors come before owners. That's why a company's bond is generally less risky than its stock.",
+      },
+      {
+        type: 'read',
+        kicker: 'The market',
+        title: 'The stock exchange and indices',
+        body: "When a company issues new shares, it raises money: that's the **primary market**. After that, those shares trade between investors on the stock exchange: that's the **secondary market**. The price there moves with supply and demand.\n\nAn **index** sums up a market. France's **CAC 40** tracks 40 large companies listed in Paris; the **S&P 500** tracks 500 large US companies.",
+      },
+      {
+        type: 'number',
+        question: 'You buy a share for €50. A year later it is worth €55 and has paid you a €2 dividend. What is your total return, in %?',
+        answer: 14,
+        tolerance: 0.05,
+        unit: '%',
+        hint: 'Add the capital gain and the dividend, then divide by the purchase price.',
+        explain: '(€5 capital gain + €2 dividend) ÷ €50 = 0.14, i.e. 14%.',
+      },
+      {
+        type: 'read',
+        kicker: 'For everyone',
+        title: 'ETFs',
+        body: "An **ETF** (or index fund) is a listed fund that replicates an index. Buying a unit of an S&P 500 ETF means owning a small slice of all 500 companies at once.\n\nThe advantages: instant diversification and fees that are often very low. It has become the basic building block of long-term investing for individuals.",
+      },
+      {
+        type: 'quiz',
+        question: 'Why is an ETF on a broad index less risky than a single stock?',
+        options: ["Because it's guaranteed by the state", "Because it's diversified across many companies", 'Because it never falls', "Because it doesn't pay dividends"],
+        answer: 1,
+        explain: "One company's bankruptcy weighs little in a basket of hundreds. But be careful: if the whole market falls, the ETF falls too.",
+      },
+    ],
+  },
+]

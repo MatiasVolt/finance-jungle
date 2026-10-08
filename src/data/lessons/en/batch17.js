@@ -1,0 +1,657 @@
+// End of level 5: history, law, philosophy. The last steps of the path. English version of fr/lot17.js.
+
+export default [
+  // ───────────── History · L5 ─────────────
+  {
+    id: 'histoire-5-1',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Greenwich, Connecticut, 1994',
+        title: 'The geniuses\' fund',
+        body: "John Meriwether, a bond trading star, founds **Long-Term Capital Management** (LTCM). Among his partners: Myron Scholes and Robert Merton, who would receive the Nobel prize in 1997 for Black-Scholes.\n\nThe strategy: spot **tiny** price gaps between very similar securities (for example two almost identical US Treasury bonds) and bet they'll **close**. For such small gaps to pay off, you need **enormous leverage**.",
+        guide: 'hibou',
+      },
+      {
+        type: 'number',
+        question: 'In early 1998, LTCM has about $4.7 billion of equity and $125 billion of assets on its balance sheet. What is its leverage (assets ÷ equity)? (1 decimal)',
+        answer: 26.6,
+        tolerance: 0.1,
+        explain: '125 ÷ 4.7 ≈ 26.6, not counting more than $1 trillion of derivatives notional. Returns in 1995 and 1996 topped 40% a year.',
+      },
+      {
+        type: 'read',
+        kicker: 'August 1998',
+        title: 'Everything moves at once',
+        body: "Russia defaults on its debt. Panicked investors rush to the safest, most liquid securities: a **flight to quality**. The gaps LTCM was betting would close **widen**, everywhere at once. Positions meant to be independent become **correlated**.\n\nIn less than four months, the fund loses about $4.6 billion.",
+      },
+      {
+        type: 'number',
+        question: 'With leverage of 25, by what % does equity fall if assets lose 4%?',
+        answer: 100,
+        tolerance: 0.01,
+        unit: '%',
+        explain: '4% × 25 = 100%: all the capital is wiped out. Leverage turns a modest move into a catastrophe, like buying on margin in 1929.',
+      },
+      {
+        type: 'read',
+        kicker: 'September 1998',
+        title: 'The rescue',
+        body: "The Federal Reserve Bank of New York brings together 14 big banks, which inject about **$3.6 billion** to take over the fund and wind it down gently. No public money, but direct involvement by the authorities.",
+      },
+      {
+        type: 'quiz',
+        question: "Why did the Fed get involved in the fate of a private fund?",
+        options: [
+          'Because its managers were Nobel laureates',
+          'Because LTCM had positions with almost every big bank: a fire sale could have triggered a chain of losses throughout the system',
+          'Because the law required it',
+          'To save the partners',
+        ],
+        answer: 1,
+        explain: "That's **systemic risk** (Financial law, level 1). Ten years later, the same dilemma would arise on a far bigger scale with Lehman Brothers.",
+      },
+      {
+        type: 'quiz',
+        challenge: true,
+        question: 'What is the deepest lesson of LTCM?',
+        options: [
+          'That financial mathematics is useless',
+          "That models calibrated on past correlations and liquidity can fail exactly when everyone wants out at once, and that leverage doesn't leave you time to be proved right",
+          'That you should never invest in bonds',
+          'That Nobel laureates are dishonest',
+        ],
+        answer: 1,
+        explain: "Fat tails, correlations rising in a crisis, limits to arbitrage, leverage, liquidity risk: almost the whole level 3 to 5 syllabus played out in a few weeks. Keynes said it: the market can stay irrational longer than you can stay solvent.",
+      },
+    ],
+  },
+
+  {
+    id: 'histoire-5-2',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'At the start',
+        title: 'Subprime and securitisation',
+        body: "In the early 2000s, US banks make more and more mortgages to fragile borrowers (**subprime**), often with low teaser rates that later climb.\n\nThese loans don't stay at the banks: they're pooled and turned into securities (**securitisation**), sold worldwide. Those securities are then pooled again into **CDOs**, sliced into **tranches**.",
+        guide: 'hibou',
+      },
+      {
+        type: 'read',
+        kicker: 'The waterfall',
+        title: 'How tranches work',
+        body: "Portfolio losses are absorbed **in order**:\n\n1. first the **equity** tranche (the riskiest, the best paid);\n2. then the **mezzanine** tranche;\n3. finally the **senior** tranche, protected by the other two, and often rated **AAA**.\n\nExample: a $100m CDO with a $5m equity tranche, $15m mezzanine and $80m senior.",
+      },
+      {
+        type: 'number',
+        question: 'The portfolio suffers $12m of losses. What share of the mezzanine tranche is lost, in %? (2 decimals)',
+        answer: 46.67,
+        tolerance: 0.05,
+        unit: '%',
+        explain: 'Equity absorbs the first $5m (100% lost). The next $7m hit the mezzanine: 7 ÷ 15 ≈ 46.67%. The senior tranche has lost nothing.',
+      },
+      {
+        type: 'quiz',
+        question: "Why did senior tranches look almost risk-free, and why weren't they?",
+        options: [
+          'They were government-guaranteed',
+          'Models assumed defaults in different regions were barely correlated; a nationwide fall in house prices made them default together',
+          'They contained no mortgages',
+          'They were risk-free; the problem lay elsewhere',
+        ],
+        answer: 1,
+        explain: 'The law of large numbers only protects you if risks are independent (Statistics, level 3). When everything falls at once, the protection from the lower tranches melts away in one go.',
+      },
+      {
+        type: 'read',
+        kicker: '2008',
+        title: 'The collapse',
+        body: "- **March**: Bear Stearns, on the brink, is bought by JPMorgan with Fed support.\n- **15 September**: **Lehman Brothers** goes bankrupt, with over $600 billion of assets, the largest bankruptcy in US history.\n- **The next day**: insurer **AIG**, which had sold huge amounts of default protection (CDS), is rescued by the US government.\n- A money market fund thought to be risk-free sees its share value drop below $1, and mass withdrawals spread to all short-term funding.",
+      },
+      {
+        type: 'quiz',
+        question: 'The "originate to distribute" model (make a loan, then sell it straight on) encouraged bad lending. Why?',
+        options: [
+          'Because rates were too high',
+          "Because a lender who sells the loan no longer bears the default risk: it's incentivised to lend a lot, not to lend well",
+          'Because borrowers were too rich',
+          'This model played no role',
+        ],
+        answer: 1,
+        explain: "It's **moral hazard** (Personal finance, level 2). Post-2008 regulation now requires securitisation issuers to keep part of the risk (about 5% in Europe).",
+      },
+      {
+        type: 'quiz',
+        challenge: true,
+        question: 'Which sequence best sums up the 2008 crisis?',
+        options: [
+          'A simple housing bubble, with no consequences for banks',
+          'Poor-quality loans, securitisation that spread and hid the risk, high bank leverage, underestimated correlations, then panic in short-term funding',
+          'An IT error',
+          'A sudden rise in taxes',
+        ],
+        answer: 1,
+        explain: 'Incentives, models, leverage, liquidity: each link was covered in a different topic. So were the responses (Basel III, deposit insurance, lender of last resort, central banks).',
+      },
+    ],
+  },
+
+  {
+    id: 'histoire-5-3',
+    screens: [
+      {
+        type: 'read',
+        kicker: '1999 – 2002',
+        title: 'The euro',
+        body: "The euro was born in 1999 as a unit of account; notes and coins arrived on 1 January 2002. A single monetary policy, the ECB's, for countries with very different economies.\n\nBut there's **no fiscal union**: each country keeps its own budget and debt. The Maastricht criteria (deficit ≤ 3%, debt ≤ 60%) were supposed to be enough to maintain discipline.",
+        guide: 'hibou',
+      },
+      {
+        type: 'read',
+        kicker: 'The easy years',
+        title: 'The great convergence',
+        body: "Before 2008, markets lent to Greece, Portugal or Spain at almost the **same rate** as to Germany, as if risk had disappeared with the euro.\n\nCheap credit fuelled booms (housing in Spain and Ireland, public spending in Greece) and large **current account deficits**, funded by surplus countries in the north.",
+      },
+      {
+        type: 'read',
+        kicker: 'October 2009',
+        title: 'The Greek revelation',
+        body: "Greece's new government announces that the public deficit is far higher than reported: about **12.7%** of GDP instead of the 6% announced (it was eventually estimated at over 15%). Confidence collapses and Greek rates explode.\n\nIn 2010, the EU and the IMF grant a first bailout of **€110 billion**, then a second of about **€130 billion** in 2012, alongside the private debt restructuring seen in Philosophy.",
+      },
+      {
+        type: 'number',
+        question: 'What do the first two bailouts add up to, in billions of euros?',
+        answer: 240,
+        tolerance: 0.5,
+        unit: '€bn',
+        explain: "110 + 130 = €240bn, more than Greece's GDP at the time. A third programme, of €86bn, followed in 2015.",
+      },
+      {
+        type: 'read',
+        kicker: 'The price',
+        title: 'Austerity',
+        body: "In exchange for the aid, Greece must sharply cut spending and raise taxes. Between 2008 and 2013, its GDP falls by about **25%**, and unemployment tops **27%**.\n\nA depression comparable in scale to that of the United States in the 1930s.",
+      },
+      {
+        type: 'number',
+        question: 'After a 25% fall in GDP, by how much (in %) must it rise to get back to its pre-crisis level? (2 decimals)',
+        answer: 33.33,
+        tolerance: 0.05,
+        unit: '%',
+        explain: '100 ÷ 75 − 1 ≈ 33.33%. The asymmetry trap, seen from Markets level 1, on the scale of an entire country.',
+      },
+      {
+        type: 'read',
+        kicker: 'The responses',
+        title: 'What Europe built',
+        body: "- **2012**: the **European Stability Mechanism** (ESM) is created, able to lend to states in trouble.\n- **2012**: Mario Draghi's \"*whatever it takes*\" (Macroeconomics, level 5).\n- **2014**: **banking union** gives the ECB supervision of the big banks, to break the bank-sovereign doom loop.",
+      },
+      {
+        type: 'quiz',
+        challenge: true,
+        question: "According to optimum currency area theory (Robert Mundell, 1961), how can a euro-area country regain competitiveness, since it can no longer devalue its currency?",
+        options: [
+          'By printing euros',
+          'Through relatively lower prices and wages ("internal devaluation"), worker mobility, or fiscal transfers between countries',
+          'By automatically leaving the euro',
+          'It has no way to',
+        ],
+        answer: 1,
+        explain: "Without an exchange rate, adjustment runs through prices, wages and unemployment, which is slow and painful. Hence the endless debate over a European fiscal union. You've just crossed 5,000 years of financial history, from Mesopotamian tablets to the euro area.",
+      },
+    ],
+  },
+
+  // ───────────── Financial law · L5 ─────────────
+  {
+    id: 'droit-5-1',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Regulating crypto',
+        title: 'The MiCA regulation',
+        body: "The EU's **MiCA** regulation (Markets in Crypto-Assets), adopted in 2023, has applied in full since **30 December 2024**. It creates a single framework for crypto-assets across the Union:\n\n- **crypto-asset service providers** (exchanges, custodians…) must be **authorised**, and can then operate throughout the EU (European passport);\n- issuers must publish a **white paper** (a disclosure document, like a prospectus).",
+        guide: 'lion',
+      },
+      {
+        type: 'read',
+        kicker: 'Three categories',
+        title: 'Not all tokens are equal',
+        body: "- **E-money tokens** (EMTs): stablecoins backed by **a single official currency** (for example a private digital euro issued by an authorised institution).\n- **Asset-referenced tokens** (ARTs): stablecoins backed by a **basket** (several currencies, commodities…).\n- **Other crypto-assets**: bitcoin, ether and most other tokens.",
+      },
+      {
+        type: 'quiz',
+        question: 'A stablecoin promises always to be worth exactly €1, and is backed by euro reserves. Which MiCA category does it fall into?',
+        options: ['Other crypto-asset', 'Asset-referenced token (ART)', 'E-money token (EMT)', 'Not covered'],
+        answer: 2,
+        explain: 'Backed by a single official currency: an EMT. Holders must be able to redeem at par, at any time.',
+      },
+      {
+        type: 'read',
+        kicker: 'Why so many rules for stablecoins',
+        title: 'The memory of Terra',
+        body: "In May 2022, the stablecoin **TerraUSD**, which wasn't backed by reserves but by an algorithmic mechanism, lost its dollar peg and collapsed, wiping out tens of billions of dollars in a few days.\n\nMiCA therefore requires solid, liquid **reserves**, with **at least 30%** in bank deposits for e-money tokens (more for the largest).",
+      },
+      {
+        type: 'number',
+        question: 'An issuer has €1 billion of e-money tokens in circulation. Under the 30% rule, what minimum must it hold in bank deposits, in millions of euros?',
+        answer: 300,
+        tolerance: 0.5,
+        unit: '€m',
+        explain: '30% × €1,000m = €300m. The rest must be held in very safe, liquid assets, such as short-term government securities.',
+      },
+      {
+        type: 'quiz',
+        question: 'Which of these is, in principle, outside the scope of MiCA?',
+        options: [
+          'A crypto exchange',
+          'A dollar-backed stablecoin',
+          'A unique, non-fungible NFT (a digital artwork)',
+          'A crypto-asset custodian',
+        ],
+        answer: 2,
+        explain: 'Truly unique NFTs are in principle excluded (unless issued in large interchangeable series). Fully decentralised finance with no identifiable intermediary and central bank digital currencies are excluded too.',
+      },
+      {
+        type: 'quiz',
+        challenge: true,
+        question: 'Why are regulators especially worried about large stablecoins used for payments?',
+        options: [
+          "Because they're too slow",
+          "Risk of panic and mass redemptions like a bank run, a parallel payment system outside central banks' control, and monetary sovereignty concerns",
+          "Because they can't be used in Europe",
+          "Because they're always fraudulent",
+        ],
+        answer: 1,
+        explain: 'A stablecoin looks a lot like a bank deposit: a promise of redemption at par. The lessons on bank runs, deposit insurance and fiat money apply directly.',
+      },
+    ],
+  },
+
+  {
+    id: 'droit-5-2',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Instrument by instrument',
+        title: 'How investments are taxed in France',
+        body: "For an individual in France, the basic rules (with the rates used in this course, to be checked each year):\n\n- dividends, interest, capital gains on securities: **flat tax of about 30%**, or the progressive scale option;\n- **PEA** and **assurance-vie**: favourable regimes after 5 and 8 years;\n- **crypto-assets** (occasional investor): gains are taxed at about 30% on conversion into **official currency** or purchase of goods. A **crypto-to-crypto swap** isn't taxable. Total disposals under €305 a year are exempt.\n\n(Every country has its own rules: in the UK and US, crypto-to-crypto swaps are generally taxable.)",
+        guide: 'lion',
+      },
+      {
+        type: 'read',
+        kicker: 'The crypto formula',
+        title: 'A gain calculated on the whole portfolio',
+        body: "For crypto in France, the gain is calculated on the **whole portfolio**, not token by token:\n\n`gain = sale price − total acquisition cost × (sale price ÷ total portfolio value)`\n\nIn other words, each sale \"uses up\" a proportional share of what you paid.",
+      },
+      {
+        type: 'number',
+        question: "You've bought €10,000 of crypto in total. Your portfolio is now worth €20,000. You sell €5,000 worth. What is the taxable gain?",
+        answer: 2500,
+        tolerance: 0.5,
+        unit: '€',
+        explain: '5,000 − 10,000 × (5,000 ÷ 20,000) = 5,000 − 2,500 = €2,500.',
+      },
+      {
+        type: 'number',
+        question: 'At a 30% rate, how much tax do you owe on this sale?',
+        answer: 750,
+        tolerance: 0.5,
+        unit: '€',
+        explain: '30% × 2,500 = €750. (The remaining total acquisition cost is then reduced by the €2,500 "used up".)',
+      },
+      {
+        type: 'read',
+        kicker: 'Internationally',
+        title: 'Foreign dividends',
+        body: "When a foreign company pays you a dividend, its country often takes a **withholding tax**. Thanks to **tax treaties**, this is usually reduced (15% for US shares, for example), and in France it gives rise to a **tax credit**, offset against income tax (but not against social charges).",
+      },
+      {
+        type: 'number',
+        question: 'A US dividend suffers 15% withholding in the US. In France, the 15% credit wipes out the 12.8% income tax (the excess is lost), but the 17.2% social charges are still due. What total tax rate do you bear, in %?',
+        answer: 32.2,
+        tolerance: 0.01,
+        unit: '%',
+        explain: '15 + 17.2 = 32.2%, slightly more than the flat tax on a French dividend. A hidden cost of holding foreign shares directly.',
+      },
+      {
+        type: 'quiz',
+        challenge: true,
+        question: 'In France, you swap bitcoin for ether, then ether for euros. Which transaction is taxable?',
+        options: [
+          'Both',
+          'Only the bitcoin-to-ether swap',
+          'Only the conversion to euros: crypto-to-crypto swaps are tax-neutral',
+          'Neither',
+        ],
+        answer: 2,
+        explain: 'The taxable event is the exit into official currency (or buying goods). Swaps between crypto-assets, including into stablecoins, are tax-deferred. Careful: every country has its own rules, and they change fast.',
+      },
+    ],
+  },
+
+  {
+    id: 'droit-5-3',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Case study (fictitious)',
+        title: 'The Canopée affair',
+        body: "Canopée SA is a small listed company. On a Monday, its CEO learns that its biggest customer (40% of revenue) won't renew its contract. Here's the timeline. Your job: classify each step using what you've learned in Financial law.",
+        guide: 'lion',
+        note: 'A real case file reads like this one: a timeline, facts, then legal classifications. Take your time.',
+      },
+      {
+        type: 'table',
+        kicker: 'The timeline',
+        title: 'A week at Canopée',
+        columns: ['Day', 'Fact'],
+        rows: [
+          ['Monday', 'The CEO learns the contract is lost'],
+          ['Tuesday', 'He sells 200,000 Canopée shares at €10'],
+          ['Wednesday', 'Press release: "Business remains solid and our customer relationships excellent"'],
+          ['The following Monday', 'The contract loss is finally announced; the share falls to €6'],
+        ],
+        caption: 'The facts are imaginary; the rules are real.',
+      },
+      {
+        type: 'quiz',
+        question: "How should Tuesday's sale be classified?",
+        options: ['A normal transaction', 'Insider dealing (trading on inside information)', 'Market manipulation only', 'A threshold crossing'],
+        answer: 1,
+        explain: 'The information is precise, not public, and was going to make the price fall. The CEO used it to sell.',
+      },
+      {
+        type: 'number',
+        question: 'What loss did the CEO avoid thanks to this sale?',
+        answer: 800000,
+        tolerance: 0.5,
+        unit: '€',
+        explain: '200,000 × (10 − 6) = €800,000.',
+      },
+      {
+        type: 'quiz',
+        question: "And Wednesday's press release?",
+        options: [
+          'A mere opinion, with no consequences',
+          'Dissemination of misleading information (market manipulation), plus a breach of the duty to publish inside information as soon as possible',
+          'Insider dealing',
+          'Nothing illegal',
+        ],
+        answer: 1,
+        explain: 'Not only was the information not published, the market was actively misled. Two separate breaches.',
+      },
+      {
+        type: 'number',
+        question: 'The French regulator\'s enforcement committee can impose up to €100m, or up to ten times the profit made. What is "ten times the profit" here?',
+        answer: 8000000,
+        tolerance: 0.5,
+        unit: '€',
+        explain: '10 × 800,000 = €8,000,000. The ceiling is the higher of the two: here, €100m. Criminal prosecution may come on top.',
+      },
+      {
+        type: 'read',
+        kicker: 'The procedure',
+        title: 'Two routes, one prosecution',
+        body: "In France, the AMF can investigate and sanction (the **administrative** route), and the **national financial prosecutor** can bring a criminal case. Since 2016, the two consult each other to choose **a single** route for the same facts: you can't be punished twice.\n\nInside the company, prevention relies on mandatory **insider lists** and **closed periods** (30 days before results).",
+      },
+      {
+        type: 'quiz',
+        challenge: true,
+        question: "If you were Canopée's compliance officer, which measure would most likely have prevented this case?",
+        options: [
+          'Banning the CEO from owning shares',
+          'Immediately putting the information on an insider list, blocking any trading by informed people, and publishing the information without delay (or justifying a strictly controlled delay)',
+          'Waiting until the end of the year',
+          "Doing nothing; it's not compliance's job",
+        ],
+        answer: 1,
+        explain: "On a single case, you've just applied inside information, market manipulation, disclosure duties and sanctions. That's exactly how a lawyer or compliance officer reasons.",
+      },
+    ],
+  },
+
+  // ───────────── Philosophy · L5 ─────────────
+  {
+    id: 'philo-5-1',
+    screens: [
+      {
+        type: 'read',
+        kicker: '1971',
+        title: 'The veil of ignorance',
+        body: "In *A Theory of Justice*, John Rawls proposes a thought experiment: imagine you must choose a society's rules **without knowing** what place you'll occupy in it (rich or poor, healthy or not, talented or not). That's the **veil of ignorance**.\n\nHis conclusion, the **difference principle**: inequalities are only just if they also benefit **the least advantaged**.",
+        guide: 'paresseux',
+      },
+      {
+        type: 'quiz',
+        question: 'Behind the veil of ignorance, which of these societies would you choose according to Rawls?',
+        options: [
+          'The one with the highest average, even if the poorest are very poor',
+          'The one where the least advantaged are as well off as possible, even with inequality',
+          'The one where everyone has exactly the same, even if all are poorer',
+          "It doesn't matter",
+        ],
+        answer: 1,
+        explain: "Rawls isn't a strict egalitarian: inequalities are acceptable if they improve the lot of the worst off (for example by rewarding innovation that benefits everyone).",
+      },
+      {
+        type: 'read',
+        kicker: 'The libertarian reply',
+        title: 'Nozick',
+        body: "In 1974, Robert Nozick objected: justice isn't about the **outcome** (who has what), but about **how** it was obtained. If every exchange was free and every acquisition legitimate, the resulting distribution is just, whatever it is.\n\nTaxing to redistribute then amounts, for him, to forcing some people to work for others.",
+      },
+      {
+        type: 'read',
+        kicker: '2013',
+        title: 'Piketty and r > g',
+        body: "In *Capital in the Twenty-First Century*, Thomas Piketty gathers two centuries of data. His thesis: when the **return on capital** `r` persistently exceeds the **growth of the economy** `g`, inherited wealth grows faster than income from work, and wealth inequality widens.\n\nRecognise r and g? They're almost the same letters as in public debt dynamics, but with a different meaning.",
+      },
+      {
+        type: 'number',
+        question: 'Wealth earns 5% a year, all reinvested. Wages grow 1.5% a year. After 30 years, by how much has the wealth-to-wage ratio been multiplied? (2 decimals)',
+        answer: 2.77,
+        tolerance: 0.02,
+        hint: '(1.05 ÷ 1.015)³⁰.',
+        explain: "≈ 2.77. Wealth weighs almost three times as much relative to wages within a generation. That's compound interest (the Tortoise), applied to a whole society.",
+      },
+      {
+        type: 'reflect',
+        question: 'Should capital and inheritance be taxed more?',
+        options: [
+          {
+            label: 'Yes, to limit concentration',
+            response: "That's Piketty's proposal (a progressive tax on capital, ideally global). A Rawlsian argument: nobody deserves an inheritance. Objections: capital flight, valuation difficulties, and a possible effect on investment.",
+          },
+          {
+            label: 'No, it would be unjust',
+            response: "That's Nozick's argument: if wealth was legitimately acquired, taxing it more is a form of confiscation. An economic argument adds to it: taxing saving discourages the investment that drives growth.",
+          },
+          {
+            label: 'Tax differently rather than more',
+            response: 'Many economists propose taxing inheritance more and work less, or taxing rents (land, monopolies) more than productive capital. The question becomes: which capital, and when?',
+          },
+        ],
+      },
+      {
+        type: 'quiz',
+        challenge: true,
+        question: "In public debt dynamics, we hoped for r < g. In Piketty, we fear r > g. Is that contradictory?",
+        options: [
+          'Yes, one of them must be wrong',
+          "No: in Piketty, r is the average return on capital (shares, property, businesses), well above the interest rate on government bonds, which is the r of public debt",
+          'No, they are exactly the same quantities',
+          'Yes, because g is always negative',
+        ],
+        answer: 1,
+        explain: 'The return on risky capital includes a risk premium (CAPM, level 4). So both can be true at once: r_capital > g > r_debt. Reading definitions carefully avoids many false debates.',
+      },
+    ],
+  },
+
+  {
+    id: 'philo-5-2',
+    screens: [
+      {
+        type: 'read',
+        kicker: 'Investing with values',
+        title: 'Sustainable finance',
+        body: "Sustainable finance tries to build **ESG** criteria (environmental, social, governance) into investment decisions. Several approaches:\n\n- **exclusion** of certain sectors (coal, weapons…);\n- **best-in-class**: picking the best companies in each sector;\n- **engagement**: staying a shareholder and voting to change the company;\n- **impact investing**: funding projects with measurable effects.",
+        guide: 'paresseux',
+      },
+      {
+        type: 'read',
+        kicker: 'The European framework',
+        title: 'SFDR and the taxonomy',
+        body: "The **SFDR** regulation (2021) classifies funds by ambition:\n\n- **Article 6**: no particular sustainability objective;\n- **Article 8**: promotes environmental or social characteristics;\n- **Article 9**: has a **sustainable investment objective**.\n\nThe EU **taxonomy**, for its part, defines which activities can be called \"green\".",
+      },
+      {
+        type: 'quiz',
+        question: 'A fund whose explicit objective is to finance the energy transition falls under which SFDR article?',
+        options: ['Article 6', 'Article 8', 'Article 9', 'None'],
+        answer: 2,
+        explain: 'Article 9 is reserved for funds whose objective is sustainable investment, not just a characteristic.',
+      },
+      {
+        type: 'read',
+        kicker: 'The hoped-for mechanism',
+        title: 'Acting through the cost of capital',
+        body: "The main argument: if many investors refuse to fund polluting companies, those companies must offer higher returns to attract capital. Their **cost of capital** rises, their projects become less profitable (NPV, WACC), and they invest less in polluting activities.",
+      },
+      {
+        type: 'number',
+        question: 'A polluting project earns €10m a year, forever. If its cost of capital rises from 8% to 9%, by what % does its value fall? (2 decimals)',
+        answer: 11.11,
+        tolerance: 0.05,
+        unit: '%',
+        hint: 'Perpetuity: 10 ÷ 0.08 then 10 ÷ 0.09.',
+        explain: "€125m → €111.1m: −11.11%. One point of cost of capital weighs heavily on long-lived projects: that's the channel through which finance can have an effect.",
+      },
+      {
+        type: 'read',
+        kicker: 'The criticisms',
+        title: 'Greenwashing and diverging ratings',
+        body: "- **Greenwashing**: funds present themselves as green without really being so.\n- **Divesting** sometimes just transfers the shares to less demanding investors.\n- **ESG ratings** from different agencies diverge sharply: a 2022 study (Berg, Kölbel and Rigobon) found an average correlation of about 0.5 between them, versus over 0.9 for credit ratings.",
+      },
+      {
+        type: 'reflect',
+        question: 'Can finance really help solve the climate problem?',
+        options: [
+          {
+            label: 'Yes, by redirecting capital',
+            response: 'The transition\'s investment needs run into trillions. Finance is essential to fund them, and the cost-of-capital channel is real, even if modest when few investors take part.',
+          },
+          {
+            label: "No, it's governments' job",
+            response: "That's the externalities reading (Adam Smith, level 2): as long as the price of carbon doesn't reflect its cost, the market \"lies\". A carbon tax or quotas correct the price for everyone, without relying on some investors' goodwill.",
+          },
+          {
+            label: 'The two are complementary',
+            response: "A view held by many economists: governments set the carbon price and the rules; finance then allocates capital efficiently within that frame. Without a carbon price, sustainable finance remains a bet on future regulation.",
+          },
+        ],
+      },
+      {
+        type: 'quiz',
+        challenge: true,
+        question: 'From an economic point of view, what is the most direct solution to the pollution problem, according to the theory seen since level 2?',
+        options: [
+          "Relying solely on investors' goodwill",
+          'Making the externality pay, for example with a carbon tax or emission quotas, so the price includes the real cost',
+          'Banning all industrial activity',
+          'Doing nothing, the invisible hand is enough',
+        ],
+        answer: 1,
+        explain: 'That\'s the "Pigouvian solution", named after economist Arthur Pigou (1920). It links Smith, Hayek (prices that tell the truth) and sustainable finance. The EU carbon market (since 2005) is one application.',
+      },
+    ],
+  },
+
+  {
+    id: 'philo-5-3',
+    screens: [
+      {
+        type: 'read',
+        kicker: '2006',
+        title: 'An engine, not a camera',
+        body: "Sociologist Donald MacKenzie published *An Engine, Not a Camera*: financial models don't just **describe** markets, like a camera. They **transform** them, like an engine. That's **performativity**.\n\nHis central example: Black-Scholes.",
+        guide: 'paresseux',
+      },
+      {
+        type: 'read',
+        kicker: "A formula's story",
+        title: 'When the market starts to look like the model',
+        body: "In 1973, Chicago's organised options exchange (CBOE) opened the very year the formula was published. At first, observed prices deviated clearly from it. Then traders adopted the formula, with printed sheets and programmed calculators, and used it to hedge their positions.\n\nOver the 1970s, real prices **converged** towards the model's. The formula helped make the market conform to it.",
+      },
+      {
+        type: 'quiz',
+        question: 'What is the "performativity" of a financial model?',
+        options: [
+          'Its ability to make money',
+          'The fact that using it changes behaviour, and therefore the prices it is supposed to describe',
+          'Its calculation speed',
+          'Its legal compliance',
+        ],
+        answer: 1,
+        explain: "A model everyone uses is no longer a mere observer: it becomes a market participant.",
+      },
+      {
+        type: 'read',
+        kicker: 'The flip side',
+        title: 'Counter-performativity',
+        body: "In 1987, portfolio insurance, built on the same logic as Black-Scholes, contributed to the crash (History, level 4). After the crash, option prices stopped following the model: the **smile** appeared.\n\nA widely used model can also make the world **less** like it, by creating the conditions for its own failure.",
+      },
+      {
+        type: 'number',
+        question: 'Many banks limit their risk with a VaR proportional to volatility. If volatility doubles, by what % must they cut their positions to keep the same VaR?',
+        answer: 50,
+        tolerance: 0.01,
+        unit: '%',
+        explain: 'VaR ∝ σ × position: if σ doubles, the position must be halved, i.e. −50%.',
+      },
+      {
+        type: 'quiz',
+        question: 'If every bank applies this rule at the same time during a crisis, what happens?',
+        options: [
+          'The market stabilises',
+          'They all sell together, prices fall, volatility rises further, forcing more selling',
+          'Nothing in particular',
+          'Prices rise',
+        ],
+        answer: 1,
+        explain: "That's **procyclicality**: a rule that's prudent for each becomes destabilising for all. We saw it in 1929 (margin calls), 1987 (portfolio insurance), 1998 (LTCM) and 2008 (haircuts).",
+      },
+      {
+        type: 'reflect',
+        question: 'If models change the world they describe, what responsibility do those who build and use them bear?',
+        options: [
+          {
+            label: 'A great responsibility',
+            response: "A model is never neutral: it steers attention, decisions and capital. Those who build it should spell out its assumptions and limits, and ask what happens if everyone uses it at once.",
+          },
+          {
+            label: "None, a model is just a tool",
+            response: "A common argument: it's the use that's the problem, not the tool. But a tool that you know will be used massively, and that changes what it measures, isn't quite a tool like any other.",
+          },
+          {
+            label: 'A responsibility shared with regulators',
+            response: "That's the spirit of today's regulation: model validation requirements, stress tests, attention to systemic risk. The regulator watches what the market does as a whole, which no single participant sees.",
+          },
+        ],
+      },
+      {
+        type: 'quiz',
+        challenge: true,
+        question: 'Last question of the course. What thread links barter from Getting started, the Black-Scholes formula and the 2008 crisis?',
+        options: [
+          'None, they are unrelated subjects',
+          'Finance rests on trust and on shared representations of the future (a currency, a price, a model) that can reinforce themselves… or collapse when everyone doubts at the same time',
+          'They were all invented in Chicago',
+          'They only concern banks',
+        ],
+        answer: 1,
+        explain: "A currency is worth what trust makes it worth. An option price is worth a model everyone shares. A bank stands as long as its depositors don't all run to the counter. You've crossed the jungle from the first banana to Black-Scholes, and beyond. Well done.",
+      },
+    ],
+  },
+]
