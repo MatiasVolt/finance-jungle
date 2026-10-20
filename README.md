@@ -1,5 +1,7 @@
 # Finance Jungle
 
+**Site en ligne : [finance-jungle.pages.dev](https://finance-jungle.pages.dev)**
+
 Apprendre la finance pour de vrai, quelques minutes par jour, en français ou en anglais.
 Une application web d'apprentissage progressif, dans l'esprit de Mimo ou Codecademy (séries, XP, objectif du jour), pensée pour les 16-30 ans : ce n'est ni un jeu ni un produit pour enfants.
 
@@ -71,3 +73,7 @@ React 19 et Vite, sans autre dépendance.
 - Les leçons de droit et de fiscalité françaises citent des taux et des plafonds qui changent : elles sont à relire chaque année.
 - Toutes les leçons sont chargées d'un coup (le fichier JavaScript dépasse 1 Mo) ; un chargement à la demande allégerait le site.
 - La progression reste sur l'appareil utilisé : elle ne se retrouve pas sur un autre navigateur.
+
+## Comment ce projet a été construit
+
+J'ai conçu l'application (public visé, progression, méthode pédagogique, choix des thèmes et des écrans) et je l'ai développée avec l'aide d'un assistant de programmation IA (Claude), d'où sa présence dans l'historique des commits. Les leçons ont été relues, mais elles peuvent encore contenir des erreurs : toute correction est la bienvenue.
